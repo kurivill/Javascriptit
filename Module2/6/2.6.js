@@ -1,6 +1,5 @@
 function roll() {
-  let heitto = Math.floor(Math.random() * 6 + 1);
-  return heitto;
+  return Math.floor(Math.random() * 6 + 1);
 }
 
 const kohde = document.querySelector('#vastaus2_6')
