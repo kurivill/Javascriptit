@@ -1,36 +1,92 @@
-'use strict'
+'use strict';
 
-const testiluku = '12+98'
-let operaattori = ''
-let ekaluku = ''
-let tokaluku = ''
-let indeksi = 0
+const lasku = document.getElementById('calculation');
+const nappi = document.getElementById('start');
+const kohde = document.getElementById('result');
 
-const lista = testiluku.split('')
+nappi.addEventListener('click', function() {
+  let operaattori = '';
+  let ekaluku = '';
+  let tokaluku = '';
+  let indeksi = 0;
+  let tulosteksti = '';
 
-for (let i = 0; i<lista.length; i++) {
-  if (lista[i] !== '+' && lista[i]!=='-' && lista[i]!=='*' && lista[i]!=='/') {
-    ekaluku += lista[i];
-  }
-  else {
-    operaattori = lista[i];
-    indeksi = i+1
-    break
+  const syote = lasku.value;
+  const lista = syote.split('');
+
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] !== '+' && lista[i] !== '-' && lista[i] !== '*' && lista[i] !==
+        '/') {
+      ekaluku += lista[i];
+    } else {
+      operaattori = lista[i];
+      indeksi = i + 1;
+      break;
 
     }
   }
 
- for (let j= indeksi; j<lista.length; j++) {
-   tokaluku += lista[j];
- }
+  for (let j = indeksi; j < lista.length; j++) {
+    tokaluku += lista[j];
+  }
 
-console.log(testiluku)
-for (let x = 0; x<lista.length; x++) {
-  console.log(lista[x])
+  let tulos = 0
+
+  switch(operaattori) {
+    case '+':
+      tulos = parseInt(ekaluku) + parseInt(tokaluku)
+      tulosteksti = document.createTextNode(tulos.toString())
+      kohde.appendChild(tulosteksti)
+      break
+
+    case '-':
+      tulos = parseInt(ekaluku) - parseInt(tokaluku)
+      tulosteksti = document.createTextNode(tulos.toString())
+      kohde.appendChild(tulosteksti)
+      break
+
+    case '*':
+      tulos = parseInt(ekaluku) * parseInt(tokaluku)
+      tulosteksti = document.createTextNode(tulos.toString())
+      kohde.appendChild(tulosteksti)
+      break
+
+    case '/':
+      tulos = parseInt(ekaluku) / parseInt(tokaluku)
+      tulosteksti = document.createTextNode(tulos.toString())
+      kohde.appendChild(tulosteksti)
+      break
+
+  }
+
+})
+
+
+/*const lista = testiluku.split('');
+
+for (let i = 0; i < lista.length; i++) {
+  if (lista[i] !== '+' && lista[i] !== '-' && lista[i] !== '*' && lista[i] !==
+      '/') {
+    ekaluku += lista[i];
+  } else {
+    operaattori = lista[i];
+    indeksi = i + 1;
+    break;
+
+  }
 }
-console.log('eka luku: ' + ekaluku)
-console.log('operaattori: ' + operaattori)
-console.log('toka luku: ' + tokaluku)
+
+for (let j = indeksi; j < lista.length; j++) {
+  tokaluku += lista[j];
+}
+
+console.log(testiluku);
+for (let x = 0; x < lista.length; x++) {
+  console.log(lista[x]);
+}
+console.log('eka luku: ' + ekaluku);
+console.log('operaattori: ' + operaattori);
+console.log('toka luku: ' + tokaluku);
 
 /*
 Eli tehdään niin, että splitataan kaikki merkit omaan listaan
@@ -121,8 +177,6 @@ for (let i = 0; i<numerot.length; i++) {
 */
 
 //var teksti = '12+98'
-
-
 
 //lista.forEach((element) => console.log(element))
 
