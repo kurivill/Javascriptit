@@ -10,9 +10,8 @@ const kohde = document.getElementById('target')
 
 lomake.addEventListener('submit', function(evt) {
     evt.preventDefault();
-    ekanimi = etunimi.value;
-    tokanimi = sukunimi.value;
-    let teksti = `Your name is ${ekanimi} ${tokanimi}`;
+    
+    let teksti = `Your name is ${etunimi.value} ${sukunimi.value}`;
     let tekstielementti = document.createTextNode(teksti);
     kohde.appendChild(tekstielementti);
 
