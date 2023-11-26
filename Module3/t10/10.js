@@ -1,6 +1,6 @@
 'use strict'
 
-/*Eli tällä hetkellä ongelmana on se, että nettisivu näyttää ottavan vastaan sen submitin, mutta funktio ei tunnu toimivan */
+/* Kokeillaan jossain kohtaa sitä yhtä näppärää kikkaa p-elementin täyttämiseksi. */
 
 const lomake = document.getElementById('source')
 const etunimi = document.querySelector(`input[name=firstname]`)
